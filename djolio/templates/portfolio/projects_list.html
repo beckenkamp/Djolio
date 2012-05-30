@@ -1,0 +1,40 @@
+{% extends "portfolio/base_work.html" %}
+{% load static %}
+
+{% block title %}Work{% endblock %}
+
+{% block content %}
+<ul class="projects-list">
+ {% for object in object_list %}
+  {% if object.is_public %}
+   <li class="project">
+    <h3 class="name">{{ object.name }}</h3>
+    <a class="lead-image url" href="{{ object.project_url }}">
+      <span class="more">View work</span>
+      <img src="{% get_static_prefix %}upload/{{ object.overview_image }}" alt="" />
+      <img src="{% get_static_prefix %}upload/{{ object.detail_image }}" alt="" />
+     </a>
+     <div class="description">
+     {{ object.description }}
+     </div>
+     <dl class="meta">
+      <dt>Client</dt>
+      <dd>{{ object.client }}</dd>
+      <dt>Medium</dt>
+      {% for medium in object.media.all %}
+          <dd>{{ medium }}</dd>
+      {% endfor %}
+      <dt>Disciplines</dt>
+      <dd>{{ object.disciplines }}</dd>
+      <dt>Completed</dt>
+      <dd>{{ object.completion_date|date:"F Y" }}
+       {% if object.in_development %}
+        <span class="quiet">(in development)</span>
+       {% endif %}
+      </dd>
+     </dl>
+   </li>
+  {% endif %}
+ {% endfor %}
+</ul>
+{% endblock %}

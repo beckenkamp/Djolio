@@ -4,7 +4,17 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from djolio.portfolio.models import Project
+
+info_dict = {
+    'queryset': Project.objects.all(),
+}
+
 urlpatterns = patterns('',
+
+    url(r'^work/$', 'django.views.generic.list_detail.object_list', dict(info_dict, template_name="portfolio/projects_list.html")),
+    url(r'^work/(?P<slug>[-\w]+)/$', 'django.views.generic.date_based.object_detail', dict(info_dict, slug_field='slug')),
+
     # Examples:
     # url(r'^$', 'djolio.views.home', name='home'),
     # url(r'^djolio/', include('djolio.foo.urls')),

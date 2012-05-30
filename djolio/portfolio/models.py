@@ -8,7 +8,7 @@ class Client(models.Model):
         db_table = "clients"
         ordering = ['name']
 
-    def __repr__(self):
+    def __unicode__(self):
         return self.name
     
 class Medium(models.Model):
@@ -19,7 +19,7 @@ class Medium(models.Model):
         verbose_name_plural = "media"
         ordering = ['name']
 
-    def __repr__(self):
+    def __unicode__(self):
         return self.name
     
 class Project(models.Model):
@@ -33,14 +33,14 @@ class Project(models.Model):
     completion_date = models.DateField()
     in_development = models.BooleanField()
     is_public = models.BooleanField(default=True)
-    overview_image = models.URLField()
-    detail_image = models.URLField()
+    overview_image = models.ImageField(upload_to='overview')
+    detail_image = models.ImageField(upload_to='detail')
     
     class Meta:
         db_table = "projects"
         ordering = ['-completion_date']
      
-    def __repr__(self):
+    def __unicode__(self):
         return self.name
     
     def get_absolute_url(self):
