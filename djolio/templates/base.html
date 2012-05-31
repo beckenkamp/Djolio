@@ -4,10 +4,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Djolio</title>
+    <title>Portfolio de Markus Beck</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Portfolio do ilustrador e quadrinista Markus Beck. Trabalhos de ilustracao, quadrinhos, desenhos, aquarela, pintura digital, etc.">
+    <meta name="author" content="Markus Beck">
 
     <!-- Le styles -->
     <link href="{% get_static_prefix %}css/bootstrap.css" rel="stylesheet">
@@ -42,12 +42,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Djolio - Markus Beck</a>
+          <a class="brand" href="/work/">Markus Beck</a>
           <div class="nav-collapse">
+            {% load tags %}
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="{% navactive request '/work/' %}"><a href="/work/">Portfolio</a></li>
+              <li class="{% navactive request '/about/' %}"><a href="/about/">Sobre</a></li>
+              <li><a href="/contact">Contato</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -56,77 +57,10 @@
 
     <div class="container">
 
-      <h1>{% block title %}Title{% endblock %}</h1>
+      <h1>{% block title %}{% endblock %}</h1>
 
       {% block content %}
       
-      <ul class="thumbnails">          
-        
-        <li class="span3">
-          <div class="thumbnail" style="padding: 10px;">
-            <img src="http://placehold.it/260x180" alt="" style="margin-bottom: 10px">            
-            <a class="btn btn-info btn-mini pull-right" data-toggle="modal" href="#myModal"><i class="icon-zoom-in icon-white"></i> Zoom In</a>
-            <h4>Thumbnail label</h4>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><i class="icon-tags"></i> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span></p>
-          </div>
-        </li>
-        
-        <div class="modal fade" id="myModal">
-          <div class="modal-header">
-            <button class="close" data-dismiss="modal">×</button>
-            <h3>Modal header</h3>
-          </div>
-          <div class="modal-body">
-            <img src="http://placehold.it/500x800" alt="">
-          </div>
-          <div class="modal-footer">
-            <p>&copy; Markus Beck 2012</p>
-          </div>
-        </div>
-       
-	<li class="span3">
-          <div class="thumbnail" style="padding: 10px;">
-            <img src="http://placehold.it/260x180" alt="" style="margin-bottom: 10px">            
-            <a class="btn btn-info btn-mini pull-right" data-toggle="modal" href="#myModal"><i class="icon-zoom-in icon-white"></i> Zoom In</a>
-            <h4>Thumbnail label</h4>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><i class="icon-tags"></i> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span></p>
-          </div>
-        </li>
-
-	 <li class="span3">
-          <div class="thumbnail" style="padding: 10px;">
-            <img src="http://placehold.it/260x180" alt="" style="margin-bottom: 10px">            
-            <a class="btn btn-info btn-mini pull-right" data-toggle="modal" href="#myModal"><i class="icon-zoom-in icon-white"></i> Zoom In</a>
-            <h4>Thumbnail label</h4>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><i class="icon-tags"></i> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span></p>
-          </div>
-        </li>
-
-	<li class="span3">
-          <div class="thumbnail" style="padding: 10px;">
-            <img src="http://placehold.it/260x180" alt="" style="margin-bottom: 10px">            
-            <a class="btn btn-info btn-mini pull-right" data-toggle="modal" href="#myModal"><i class="icon-zoom-in icon-white"></i> Zoom In</a>
-            <h4>Thumbnail label</h4>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><i class="icon-tags"></i> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span></p>
-          </div>
-        </li>
-
-	<li class="span3">
-          <div class="thumbnail" style="padding: 10px;">
-            <img src="http://placehold.it/260x180" alt="" style="margin-bottom: 10px">            
-            <a class="btn btn-info btn-mini pull-right" data-toggle="modal" href="#myModal"><i class="icon-zoom-in icon-white"></i> Zoom In</a>
-            <h4>Thumbnail label</h4>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><i class="icon-tags"></i> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span> <span class="label">Default</span></p>
-          </div>
-        </li>
-
-      </ul>
-
       {% endblock %}
 
       <hr>
