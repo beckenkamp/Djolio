@@ -1,38 +1,51 @@
-{% extends "portfolio/base_work.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}Work{% endblock %}
 
 {% block content %}
-<ul class="projects-list">
+<ul class="thumbnails">
  {% for object in object_list %}
   {% if object.is_public %}
-   <li class="project">
-    <h3 class="name">{{ object.name }}</h3>
-    <a class="lead-image url" href="{{ object.project_url }}">
-      <span class="more">View work</span>
-      <img src="{% get_static_prefix %}upload/{{ object.overview_image }}" alt="" />
-      <img src="{% get_static_prefix %}upload/{{ object.detail_image }}" alt="" />
-     </a>
-     <div class="description">
-     {{ object.description }}
+   <li class="span3">
+     <div class="thumbnail" style="padding: 10px;">
+        <img src="{% get_static_prefix %}upload/{{ object.overview_image }}" alt="{{ object.name }} - Overview"  style="margin-bottom: 10px" />	
+        <a class="btn btn-info btn-mini pull-right" data-toggle="modal" href="#modal-{{ object.id }}"><i class="icon-zoom-in icon-white"></i> Zoom In</a>
+        <h4>{{ object.name }}</h4>
+        <p>{{ object.description }}</p>
+        <dl class="meta">
+           <dt>Client</dt>
+           <dd>{{ object.client }}</dd>
+           <dt>Medium</dt>
+           {% for medium in object.media.all %}
+              <dd>{{ medium }}</dd>
+           {% endfor %}
+           <dt>Disciplines</dt>
+           <dd>{{ object.disciplines }}</dd>
+           <dt>Completed</dt>
+           <dd>{{ object.completion_date|date:"F Y" }}
+           {% if object.in_development %}
+              <span class="quiet">(in development)</span>
+           {% endif %}
+           </dd>
+        </dl>
      </div>
-     <dl class="meta">
-      <dt>Client</dt>
-      <dd>{{ object.client }}</dd>
-      <dt>Medium</dt>
-      {% for medium in object.media.all %}
-          <dd>{{ medium }}</dd>
-      {% endfor %}
-      <dt>Disciplines</dt>
-      <dd>{{ object.disciplines }}</dd>
-      <dt>Completed</dt>
-      <dd>{{ object.completion_date|date:"F Y" }}
-       {% if object.in_development %}
-        <span class="quiet">(in development)</span>
-       {% endif %}
-      </dd>
-     </dl>
+   </li> 
+
+   <div class="modal fade" id="modal-{{ object.id }}">
+     <div class="modal-header">
+       <button class="close" data-dismiss="modal">×</button>
+       <h3>Modal header</h3>
+     </div>
+     <div class="modal-body">
+       <img src="{% get_static_prefix %}upload/{{ object.detail_image }}" alt="{{ object.name }} - Detail" />
+     </div>
+     <div class="modal-footer">
+      <p>&copy; Markus Beck 2012</p>
+     </div>
+   </div>
+      
+
    </li>
   {% endif %}
  {% endfor %}
