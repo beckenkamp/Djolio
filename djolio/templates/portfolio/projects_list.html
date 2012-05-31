@@ -14,15 +14,15 @@
         <h4>{{ object.name }}</h4>
         <p>{{ object.description }}</p>
         <dl class="meta">
-           <dt>Client</dt>
+           <dt><i class="icon-user"></i> Cliente</dt>
            <dd>{{ object.client }}</dd>
-           <dt>Medium</dt>
+           <dt><i class="icon-picture"></i> Mídia</dt>
            {% for medium in object.media.all %}
               <dd>{{ medium }}</dd>
            {% endfor %}
-           <dt>Disciplines</dt>
+           <dt><i class="icon-pencil"></i> Técnicas</dt>
            <dd>{{ object.disciplines }}</dd>
-           <dt>Completed</dt>
+           <dt><i class="icon-calendar"></i> Entrega</dt>
            <dd>{{ object.completion_date|date:"F Y" }}
            {% if object.in_development %}
               <span class="quiet">(in development)</span>
@@ -35,7 +35,7 @@
    <div class="modal fade" id="modal-{{ object.id }}">
      <div class="modal-header">
        <button class="close" data-dismiss="modal">×</button>
-       <h3>Modal header</h3>
+       <h3>{{ object.name }}</h3>
      </div>
      <div class="modal-body">
        <img src="{% get_static_prefix %}upload/{{ object.detail_image }}" alt="{{ object.name }} - Detail" />
