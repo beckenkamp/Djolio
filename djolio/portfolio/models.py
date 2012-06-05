@@ -34,7 +34,6 @@ class Project(models.Model):
     in_development = models.BooleanField()
     is_public = models.BooleanField(default=True)
     overview_image = models.ImageField(upload_to='overview')
-    detail_image = models.ImageField(upload_to='detail')
     
     class Meta:
         db_table = "projects"

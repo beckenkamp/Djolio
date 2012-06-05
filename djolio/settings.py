@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'djolio.portfolio',
     'djolio.tags',
+    'djolio.files',
 )
 
 # A sample logging configuration. The only tangible logging

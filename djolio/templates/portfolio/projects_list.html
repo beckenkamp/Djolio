@@ -38,7 +38,10 @@
        <h3>{{ object.name }}</h3>
      </div>
      <div class="modal-body">
-       <img src="{% get_static_prefix %}upload/{{ object.detail_image }}" alt="{{ object.name }} - Detail" />
+       {% for file in object.files_set.all %}
+          <img class="responsible" src="{% get_static_prefix %}upload/{{ file.files }}" alt="{{ file.name }}" />
+          <p>{{ file.description }}</p>
+       {% endfor %}
      </div>
      <div class="modal-footer">
       <p>&copy; Markus Beck 2012</p>
