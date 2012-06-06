@@ -25,11 +25,10 @@ class Medium(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=250)
     slug = models.SlugField()
-    project_url = models.URLField('Project URL')
+    project_url = models.URLField('Project URL', blank=True)
     description = models.TextField(blank=True)
     client = models.ForeignKey(Client)
     media = models.ManyToManyField(Medium)
-    disciplines = models.CharField(max_length=200)
     completion_date = models.DateField()
     in_development = models.BooleanField()
     is_public = models.BooleanField(default=True)

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+	
+  <div class="row-fluid">
+    <div class="span3">
+      <!--Sidebar content-->
+      <img src="{% get_static_prefix %}about.jpg" alt="About Markus Beck"  style="margin-bottom: 10px" />
+    </div>
+    <div class="span9">
+      {{ flatpage.content|safe }}
+    </div>
+  </div>
+
+
+{% endblock %}
+

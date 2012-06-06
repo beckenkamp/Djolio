@@ -14,15 +14,18 @@
         <h4>{{ object.name }}</h4>
         <p>{{ object.description }}</p>
         <dl class="meta">
-           <dt><i class="icon-user"></i> Cliente</dt>
-           <dd>{{ object.client }}</dd>
-           <dt><i class="icon-picture"></i> Mídia</dt>
+           <dt><i class="icon-user icon-white"></i> Cliente</dt>
+           <dd>{% if object.client.url %}
+                  <a href="{{ object.client.url }}" target="_blank">{{ object.client }}</a>
+               {% else %}
+                  {{ object.client }}
+               {% endif %}  
+           </dd>
+           <dt><i class="icon-pencil icon-white"></i> Mídia</dt>
            {% for medium in object.media.all %}
               <dd>{{ medium }}</dd>
            {% endfor %}
-           <dt><i class="icon-pencil"></i> Técnicas</dt>
-           <dd>{{ object.disciplines }}</dd>
-           <dt><i class="icon-calendar"></i> Entrega</dt>
+           <dt><i class="icon-calendar icon-white"></i> Entrega</dt>
            <dd>{{ object.completion_date|date:"F Y" }}
            {% if object.in_development %}
               <span class="quiet">(in development)</span>
