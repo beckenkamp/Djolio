@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Portfolio de Markus Beck</title>
+    <title>Markus Beck</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio do ilustrador e quadrinista Markus Beck. Trabalhos de ilustracao, quadrinhos, desenhos, aquarela, pintura digital, etc.">
     <meta name="author" content="Markus Beck">
@@ -26,6 +26,9 @@
 	font-weight: bold;
         color: #000;
         text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+      }
+      .navbar-fixed-top .brand span {
+	font-weight: normal;
       }
 
       img.responsible { 
@@ -62,12 +65,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/work/">Markus Beck</a>
+          <a class="brand" href="/work/">Markus Beck <span>Ilustrações</span></a>
           <div class="nav-collapse">
             {% load tags %}
             <ul class="nav">
-              <li class="{% navactive request '/work/' %}"><a href="/work/">Portfolio</a></li>
-              <li><a href="#">Blog</a></li>
+              <li class="{% navactive request '/work/' %}"><a href="/work/">Work</a></li>
+              <li><a href="http://mbeck.com.br/wp/">Blog</a></li>
               <li class="{% navactive request '/about/' %}"><a href="/about/">Sobre</a></li>
             </ul>
           </div><!--/.nav-collapse -->
