@@ -4,6 +4,5 @@
 *.db
 *.sqlite
 local_settings.py
-project_conf.py
 static/upload/overview/*
-static/upload/detail/*
+static/upload/files/*
