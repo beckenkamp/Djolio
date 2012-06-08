@@ -1,13 +1,8 @@
 # Django settings for djolio project.
 
-#import os
-#ROOTDIR = os.path.realpath(os.path.dirname(__file__)) + '/'
-#STATIC_HOST = 'http://127.0.0.1/djolio/'
-#STATIC_DIR = '/var/www/html/djolio/'
-
 from local_settings import * #define the local settings
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
