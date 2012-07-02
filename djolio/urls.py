@@ -12,6 +12,7 @@ info_dict = {
 
 urlpatterns = patterns('',
 
+    url(r'^$', 'django.views.generic.simple.redirect_to', {'url':'/work/'}, name='home'),
     url(r'^work/$', 'django.views.generic.list_detail.object_list', dict(info_dict, template_name="portfolio/projects_list.html"), name='work'),
     url(r'^work/(?P<slug>[-\w]+)/$', 'django.views.generic.date_based.object_detail', dict(info_dict, slug_field='slug'), name='work_detail'),
 
