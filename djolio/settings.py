@@ -2,7 +2,7 @@
 
 from local_settings import * #define the local settings
 
-DEBUG = True
+DEBUG = DEBUG_BOOLEAN
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

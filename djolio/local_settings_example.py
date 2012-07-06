@@ -14,3 +14,6 @@ DB_USER = ''
 DB_PASSWORD = ''
 DB_HOST = ''
 DB_PORT = ''
+
+#Defines if the system is in Dev mode or in production
+DEBUG_BOOLEAN = True
