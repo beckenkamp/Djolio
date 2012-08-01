@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Erro 404 - Página não encontrada!{% endblock %}
+
+{% block content %}
+
+    <p>Desculpe, mas a página que você acessou não existe ou está indisponível no momento.</p>
+
+    <p>Path: {{request_path}}</p>
+
+{% endblock %}
+
