@@ -55,5 +55,30 @@
    </li>
   {% endif %}
  {% endfor %}
+ 
+   <li class="span3">
+     <div class="thumbnail" style="padding: 10px;">
+   
+       {% load cache %}
+       {% load tags %}
+         
+         <div style="margin-bottom: 10px; background: url({% get_static_prefix %}beckblogfeed.jpg) center no-repeat; height: 100px; position: relative;">
+           <h1 style="position: absolute; right: 0; bottom: 0; font-weight: bold; color: #FFF; text-shadow: -1px 0 #2F2F2F, 0 1px #2F2F2F, 1px 0 #2F2F2F, 0 -1px #2F2F2F;">
+             Beck Blog
+           </h1>
+         </div>
+         
+         <ul style="list-style-type: none;">
+         {% get_rss "http://mbeck.com.br/blog/feed" as rss %}
+         {% for entry in rss.entries %}
+            <li style="margin-bottom:3px;">
+              <i class="icon-fire icon-white"></i> <a href="{{entry.link}}" style="color:#C6C6C6">{{entry.title}}</a>
+            </li>
+         {% endfor %}
+         </ul>
+       
+     </div>
+   </li>
+ 
 </ul>
 {% endblock %}
